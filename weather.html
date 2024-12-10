@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .weather-box {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            display: inline-block;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Information</h1>
+    <div class="weather-box">
+        <p><strong>City:</strong> <span id="city">N/A</span></p>
+        <p><strong>Temperature:</strong> <span id="temp">N/A</span>°C</p>
+        <p><strong>Description:</strong> <span id="desc">N/A</span></p>
+    </div>
+
+    <script>
+        // Parse query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const city = urlParams.get('city');
+        const temp = urlParams.get('temp');
+        const desc = urlParams.get('desc');
+
+        // Update the content dynamically
+        if (city) document.getElementById('city').textContent = city;
+        if (temp) document.getElementById('temp').textContent = temp;
+        if (desc) document.getElementById('desc').textContent = desc;
+    </script>
+</body>
+</html>
